@@ -17,7 +17,7 @@ class PluginMediaStream : NSObject {
 		NSLog("PluginMediaStream#init()")
 
 		self.rtcMediaStream = rtcMediaStream
-		self.id = rtcMediaStream.streamId
+        self.id = rtcMediaStream.streamId + "-" + UUID().uuidString
 
 		for track: RTCMediaStreamTrack in (self.rtcMediaStream.audioTracks as Array<RTCMediaStreamTrack>) {
 			let pluginMediaStreamTrack = PluginMediaStreamTrack(rtcMediaStreamTrack: track, streamId: id)
